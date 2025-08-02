@@ -10,11 +10,7 @@
   <div id="header"></div>
   <main>
     <h2>Collection</h2>
-    <ul>
-      <li>Artisanal Line</li>
-      <li>Ready-to-Wear</li>
-      <li>Footwear</li>
-    </ul>
+    <div class="collection-grid"></div>
   </main>
   <footer>
     <p>&copy; 2024 Maison Margiela</p>
@@ -26,6 +22,16 @@
         const heading = document.querySelector('main h2');
         if (heading) {
           heading.textContent = `Collection ${number}`;
+        }
+      }
+
+      const grid = document.querySelector('.collection-grid');
+      if (grid) {
+        for (let i = 1; i <= 40; i++) {
+          const card = document.createElement('div');
+          card.className = 'squaricle-card';
+          card.textContent = i;
+          grid.appendChild(card);
         }
       }
     });
