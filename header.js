@@ -7,16 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = html;
 
         const numberLinks = container.querySelectorAll('.numbers-top a');
-        const isCollectionPage = window.location.pathname.includes('collection.html');
-        if (isCollectionPage) {
-          numberLinks.forEach(link => {
-            link.addEventListener('click', evt => {
-              evt.preventDefault();
-              const number = link.textContent.trim();
-              window.location.href = `collection.html?${number}`;
-            });
+        numberLinks.forEach(link => {
+          link.addEventListener('click', evt => {
+            evt.preventDefault();
+            const number = link.textContent.trim();
+            window.location.href = `collection.html?${number}`;
           });
-        }
+        });
 
         if (window.initScrollSpy) {
           window.initScrollSpy();
