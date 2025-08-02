@@ -28,3 +28,20 @@ footer {
   padding: 1rem;
   color: #000;
 }
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.squaricle-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 20%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
