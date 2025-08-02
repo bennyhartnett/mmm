@@ -19,6 +19,17 @@
   <footer>
     <p>&copy; 2024 Maison Margiela</p>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const number = window.location.search.slice(1);
+      if (number) {
+        const heading = document.querySelector('main h2');
+        if (heading) {
+          heading.textContent = `Collection ${number}`;
+        }
+      }
+    });
+  </script>
   <script src="header.js"></script>
 </body>
 </html>
