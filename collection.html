@@ -31,18 +31,11 @@
           .then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-            const section = doc.querySelector(`#section-${number} .texts`);
+            const section = doc.querySelector(`#section-${number}`);
             if (section && info) {
-              const title = section.querySelector('h2');
-              const desc = section.querySelector('.description');
-              if (title) {
-                const h3 = document.createElement('h3');
-                h3.textContent = title.textContent;
-                info.appendChild(h3);
-              }
-              if (desc) {
-                info.appendChild(desc.cloneNode(true));
-              }
+              const clone = section.cloneNode(true);
+              clone.classList.add('active');
+              info.appendChild(clone);
             }
           });
       }
