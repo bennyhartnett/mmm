@@ -1,19 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maison Margiela</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Maison Martin Margiela</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+  @font-face {
+    font-family: 'Goudy Bookletter 1911';
+    src: url('fonts/GoudyBookletter1911-Regular.woff2') format('woff2'),
+         url('fonts/GoudyBookletter1911-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+    :root {
+      --max-width: 900px;
+      --border: 1px solid #000;
+      --transition: 0.2s ease;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Goudy Bookletter 1911', Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+      background: #fff;
+      color: #111;
+    }
+    a { text-decoration: none; color: inherit; }
+    header {
+      padding: 1rem 1rem 0.25rem;
+      text-align: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .numbers-top { 
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0; /* tightened so rows align */
+      margin-bottom: 0.25rem;
+      display: inline-block;
+      text-align: center;
+      line-height: 1.1;
+      width: calc(7 * 2.4em + 6px); /* invisible bounding box matching 7-item rows */
+      margin: 0 auto;
+    }
+    .numbers-top .line {
+      display: flex;
+      gap: 1px;
+    }
+    .numbers-top .line:first-child { margin-left: 1.1em; }
+    .numbers-top .line:first-child a { width: 1.65em; height: 1.65em; }
+    .numbers-top .line:not(:first-child) a { width: 2.4em; height: 2.4em; }
+    .numbers-top a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4em;
+      height: 2.4em;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      color: #000;
+      box-sizing: border-box;
+      border-radius: 50%;
+    }
+    .numbers-top a:hover,
+    .numbers-top a.active {
+      border: 2px solid #000;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    .sub {
+      font-size: 0.75rem;
+      margin-top: 2px;
+      letter-spacing: 0.1em;
+    }
+    .top-nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 0.5rem 0;
+      border-top: var(--border);
+      border-bottom: var(--border);
+      z-index: 10;
+    }
+    .nav-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+    }
+    .top-nav a {
+      padding: 0.35rem 0.6rem;
+      display: inline-block;
+      position: relative;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .top-nav a:hover { text-decoration: underline; }
+    .top-nav a.active {
+      font-weight: bold;
+      &::after {}
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+    }
+    .collection {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .number-circle {
+      flex: 0 0 auto;
+      width: 50px;
+      height: 50px;
+      border: 2px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1rem;
+      position: relative;
+      margin-top: 2px;
+    }
+    .number-text {
+      flex: 0 0 auto;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+      min-width: 60px;
+    }
+    .texts {
+      flex: 1;
+    }
+    .texts h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: normal;
+    }
+    .texts p {
+      margin: 4px 0 0;
+      font-size: 0.95rem;
+    }
+    .asterisk {
+      font-size: 1.2rem;
+      vertical-align: top;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.6rem;
+      text-align: right;
+      padding-right: 4px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 800px) {
+      .collection {
+        flex-direction: column;
+      }
+      .number-circle {
+        margin-bottom: 4px;
+      }
+      .nav-wrapper {
+        overflow-x: auto;
+        padding: 0 0.5rem;
+      }
+      .nav-wrapper::-webkit-scrollbar {
+        height: 8px;
+      }
+      .nav-wrapper::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
-  <div id="header"></div>
-  <main>
-    <p>Welcome to Maison Margiela, the avant-garde fashion house.</p>
+
+  
+  
+  
+
+  <main aria-label="Collections list">
+
+    <section id="section-0" class="collection" aria-labelledby="title-0">
+      <div class="number-circle" aria-hidden="true">0</div>
+      <div class="texts">
+        <h2 id="title-0">Collection “Artisanal” pour femme & homme</h2>
+        <p>La collection défilé pour femme <span class="asterisk">*</span></p>
+      </div>
+    </section>
+
+    <section id="section-1" class="collection" aria-labelledby="title-1">
+      <div class="number-circle" aria-hidden="true">1</div>
+      <div class="texts">
+        <h2 id="title-1">La collection pour femme</h2>
+      </div>
+    </section>
+
+    <section id="section-4" class="collection" aria-labelledby="title-4">
+      <div class="number-circle" aria-hidden="true">4</div>
+      <div class="texts">
+        <h2 id="title-4">Garde-robe pour femme</h2>
+      </div>
+    </section>
+
+    <section id="section-3" class="collection" aria-labelledby="title-3">
+      <div class="number-circle" aria-hidden="true">3</div>
+      <div class="texts">
+        <h2 id="title-3">Collection de fragrances</h2>
+      </div>
+    </section>
+
+    <section id="section-8" class="collection" aria-labelledby="title-8">
+      <div class="number-circle" aria-hidden="true">8</div>
+      <div class="texts">
+        <h2 id="title-8">Collection de lunettes</h2>
+      </div>
+    </section>
+
+    <section id="section-10" class="collection" aria-labelledby="title-10">
+      <div class="number-circle" aria-hidden="true">10</div>
+      <div class="texts">
+        <h2 id="title-10">La collection pour homme</h2>
+      </div>
+    </section>
+
+    <section id="section-14" class="collection" aria-labelledby="title-14">
+      <div class="number-circle" aria-hidden="true">14</div>
+      <div class="texts">
+        <h2 id="title-14">Garde-robe pour homme</h2>
+      </div>
+    </section>
+
+    <section id="section-11" class="collection" aria-labelledby="title-11">
+      <div class="number-circle" aria-hidden="true">11</div>
+      <div class="texts">
+        <h2 id="title-11">Collection d'accessoires pour femme & homme</h2>
+      </div>
+    </section>
+
+    <section id="section-12" class="collection" aria-labelledby="title-12">
+      <div class="number-circle" aria-hidden="true">12</div>
+      <div class="texts">
+        <h2 id="title-12">Collection de joaillerie</h2>
+      </div>
+    </section>
+
+    <section id="section-13" class="collection" aria-labelledby="title-13">
+      <div class="number-circle" aria-hidden="true">13</div>
+      <div class="texts">
+        <h2 id="title-13">Objets & éditions</h2>
+      </div>
+    </section>
+
+    <section id="section-22" class="collection" aria-labelledby="title-22">
+      <div class="number-circle" aria-hidden="true">22</div>
+      <div class="texts">
+        <h2 id="title-22">Collection de chaussures pour femme & homme</h2>
+      </div>
+    </section>
+
+    
+
+    <!-- Placeholder sections for other numbers (optional) -->
+    <section id="section-2" class="collection" aria-label="Placeholder">
+      <div class="number-circle" aria-hidden="true">2</div>
+      <div class="texts">
+        <h2>—</h2>
+        <p>Contenu à venir.</p>
+      </div>
+    </section>
+
+    <footer>
+      *Etiquette toute blanche
+    </footer>
   </main>
-  <footer>
-    <p>&copy; 2024 Maison Margiela</p>
-  </footer>
-  <script src="header.js"></script>
+
+  <script>
+    // Highlight active nav item based on scroll position
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const numberLinks = Array.from(document.querySelectorAll('.numbers-top a'));
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = '#' + entry.target.id;
+            numberLinks.forEach(a => {
+              if (a.getAttribute('href') === id) {
+                a.classList.add('active');
+              } else {
+                a.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+      sections.forEach(s => observer.observe(s));
+    });
+  </script>
+
 </body>
 </html>
