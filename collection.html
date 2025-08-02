@@ -9,7 +9,8 @@
 <body>
   <div id="header"></div>
   <main>
-    <h2>Collection</h2>
+    <h2 id="collection-number">Collection</h2>
+    <div id="collection-info"></div>
     <div class="collection-grid"></div>
   </main>
   <footer>
@@ -19,10 +20,31 @@
     document.addEventListener('DOMContentLoaded', () => {
       const number = window.location.search.slice(1);
       if (number) {
-        const heading = document.querySelector('main h2');
+        const heading = document.getElementById('collection-number');
         if (heading) {
           heading.textContent = `Collection ${number}`;
         }
+
+        const info = document.getElementById('collection-info');
+        fetch('index.html')
+          .then(r => r.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const section = doc.querySelector(`#section-${number} .texts`);
+            if (section && info) {
+              const title = section.querySelector('h2');
+              const desc = section.querySelector('.description');
+              if (title) {
+                const h3 = document.createElement('h3');
+                h3.textContent = title.textContent;
+                info.appendChild(h3);
+              }
+              if (desc) {
+                info.appendChild(desc.cloneNode(true));
+              }
+            }
+          });
       }
 
       const grid = document.querySelector('.collection-grid');
