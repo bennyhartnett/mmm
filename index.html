@@ -121,12 +121,13 @@
       margin: 2rem auto 2rem;
       padding: 0 1rem;
     }
-    .collection {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
+      .collection {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        cursor: pointer;
+      }
     .number-circle {
       flex: 0 0 auto;
       width: 50px;
@@ -156,10 +157,17 @@
       font-size: 1.1rem;
       font-weight: normal;
     }
-    .texts p {
-      margin: 4px 0 0;
-      font-size: 0.95rem;
-    }
+      .texts p {
+        margin: 4px 0 0;
+        font-size: 0.95rem;
+      }
+      .description {
+        display: none;
+        margin-top: 0.5rem;
+      }
+      .collection.active .description {
+        display: block;
+      }
     .asterisk {
       font-size: 1.2rem;
       vertical-align: top;
@@ -312,6 +320,43 @@
         }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
         sections.forEach(s => observer.observe(s));
       }
+
+      function initAccordion() {
+        const sections = document.querySelectorAll('.collection');
+        sections.forEach(section => {
+          const texts = section.querySelector('.texts');
+          const desc = document.createElement('div');
+          desc.className = 'description';
+
+          const contents = [];
+          const existing = texts.querySelector('p');
+          if (existing) {
+            contents.push(existing.innerHTML);
+            existing.remove();
+          }
+          contents.push('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.');
+          contents.push('Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.');
+          contents.slice(0, 2).forEach(text => {
+            const p = document.createElement('p');
+            p.innerHTML = text;
+            desc.appendChild(p);
+          });
+          texts.appendChild(desc);
+
+          section.addEventListener('click', e => {
+            if (e.target.closest('.description')) return;
+            const isActive = section.classList.contains('active');
+            sections.forEach(s => s.classList.remove('active'));
+            if (!isActive) {
+              section.classList.add('active');
+            }
+          });
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initAccordion();
+      });
     </script>
     <script src="header.js"></script>
 
