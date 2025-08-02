@@ -31,6 +31,13 @@
           const card = document.createElement('div');
           card.className = 'squaricle-card';
           card.textContent = i;
+          card.addEventListener('click', () => {
+            const expanded = grid.querySelector('.squaricle-card.expanded');
+            if (expanded && expanded !== card) {
+              expanded.classList.remove('expanded');
+            }
+            card.classList.toggle('expanded');
+          });
           grid.appendChild(card);
         }
       }
