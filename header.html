@@ -1,7 +1,119 @@
+<!-- Extracted <head> and visible page header from the original document -->
+<head>
+  <meta charset="UTF-8" />
+  <title>Maison Martin Margiela</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+  @font-face {
+    font-family: 'Goudy Bookletter 1911';
+    src: url('fonts/GoudyBookletter1911-Regular.woff2') format('woff2'),
+         url('fonts/GoudyBookletter1911-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+    :root {
+      --max-width: 900px;
+      --border: 1px solid #000;
+      --transition: 0.2s ease;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Goudy Bookletter 1911', Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+      background: #fff;
+      color: #111;
+    }
+    a { text-decoration: none; color: inherit; }
+    header {
+      padding: 1rem 1rem 0.25rem;
+      text-align: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .numbers-top { 
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0; /* tightened so rows align */
+      margin-bottom: 0.25rem;
+      display: inline-block;
+      text-align: center;
+      line-height: 1.1;
+      width: calc(7 * 2.4em + 6px); /* invisible bounding box matching 7-item rows */
+      margin: 0 auto;
+    }
+    .numbers-top .line { display: flex; gap: 1px; }
+    .numbers-top .line:first-child { margin-left: 1.1em; transform: translateX(-2px); }
+    .numbers-top .line:first-child a { width: 1.65em; height: 1.65em; }
+    .numbers-top .line:not(:first-child) a { width: 2.4em; height: 2.4em; }
+    .numbers-top a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4em;
+      height: 2.4em;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      color: #000;
+      box-sizing: border-box;
+      border-radius: 50%;
+    }
+    .numbers-top a:hover,
+    .numbers-top a.active { border: 2px solid #000; }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    .sub {
+      font-size: 0.75rem;
+      margin-top: 2px;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+
 <header>
-  <h1>Maison Margiela</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="collection.html">Collection</a>
-  </nav>
+  <div class="numbers-top" aria-label="Collection numbers">
+    <div class="line">
+      <a href="#section-0" aria-label="Collection 0">0</a>
+      <a href="#section-1" aria-label="Collection 1">1</a>
+      <a href="#section-2" aria-label="Collection 2">2</a>
+      <a href="#section-3" aria-label="Collection 3">3</a>
+      <a href="#section-4" aria-label="Collection 4">4</a>
+      <a href="#section-5" aria-label="Collection 5">5</a>
+      <a href="#section-6" aria-label="Collection 6">6</a>
+      <a href="#section-7" aria-label="Collection 7">7</a>
+      <a href="#section-8" aria-label="Collection 8">8</a>
+      <a href="#section-9" aria-label="Collection 9">9</a>
+    </div>
+    <div class="line">
+      <a href="#section-10" aria-label="Collection 10">10</a>
+      <a href="#section-11" aria-label="Collection 11">11</a>
+      <a href="#section-12" aria-label="Collection 12">12</a>
+      <a href="#section-13" aria-label="Collection 13">13</a>
+      <a href="#section-14" aria-label="Collection 14">14</a>
+      <a href="#section-15" aria-label="Collection 15">15</a>
+      <a href="#section-16" aria-label="Collection 16">16</a>
+    </div>
+    <div class="line">
+      <a href="#section-17" aria-label="Collection 17">17</a>
+      <a href="#section-18" aria-label="Collection 18">18</a>
+      <a href="#section-19" aria-label="Collection 19">19</a>
+      <a href="#section-20" aria-label="Collection 20">20</a>
+      <a href="#section-21" aria-label="Collection 21">21</a>
+      <a href="#section-22" aria-label="Collection 22">22</a>
+      <a href="#section-23" aria-label="Collection 23">23</a>
+    </div>
+  </div>
+  <h1>Maison Martin Margiela</h1>
+  <div class="sub">PARIS</div>
 </header>
