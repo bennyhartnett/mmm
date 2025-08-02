@@ -196,6 +196,7 @@
   </style>
 </head>
 <body>
+  <div id="header"></div>
 
   
   
@@ -297,28 +298,28 @@
     </footer>
   </main>
 
-  <script>
-    // Highlight active nav item based on scroll position
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section[id]');
-      const numberLinks = Array.from(document.querySelectorAll('.numbers-top a'));
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = '#' + entry.target.id;
-            numberLinks.forEach(a => {
-              if (a.getAttribute('href') === id) {
-                a.classList.add('active');
-              } else {
-                a.classList.remove('active');
-              }
-            });
-          }
-        });
-      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-      sections.forEach(s => observer.observe(s));
-    });
-  </script>
+    <script>
+      function initScrollSpy() {
+        const sections = document.querySelectorAll('section[id]');
+        const numberLinks = Array.from(document.querySelectorAll('.numbers-top a'));
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = '#' + entry.target.id;
+              numberLinks.forEach(a => {
+                if (a.getAttribute('href') === id) {
+                  a.classList.add('active');
+                } else {
+                  a.classList.remove('active');
+                }
+              });
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+        sections.forEach(s => observer.observe(s));
+      }
+    </script>
+    <script src="header.js"></script>
 
-</body>
-</html>
+  </body>
+  </html>
